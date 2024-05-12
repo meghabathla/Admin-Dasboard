@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import { Badge, Card, List } from "antd";
 import UpcomingEventsSkeleton from "../skeleton/upcoming-events";
 import { Text } from "../text";
