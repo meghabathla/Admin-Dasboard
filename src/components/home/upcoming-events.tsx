@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import { Badge, Card, List } from "antd";
 import UpcomingEventsSkeleton from "../skeleton/upcoming-events";
 import { Text } from "../text";
@@ -6,9 +6,9 @@ import { getDate } from "@/utilities/helpers";
 import { useList } from "@refinedev/core";
 import { DASHBORAD_CALENDAR_UPCOMING_EVENTS_QUERY } from "@/graphql/queries";
 import dayjs from "dayjs";
+import { CalendarOutlined } from "@ant-design/icons";
 
 const UpcomingEvents = () => {
- 
   const { data, isLoading } = useList({
     resource: "events",
     pagination: { pageSize: 5 },
@@ -29,7 +29,7 @@ const UpcomingEvents = () => {
       gqlQuery: DASHBORAD_CALENDAR_UPCOMING_EVENTS_QUERY,
     },
   });
-  alert(JSON.stringify(data));
+  // alert(JSON.stringify(data));
   return (
     <Card
       style={{ height: "100%" }}
@@ -44,10 +44,15 @@ const UpcomingEvents = () => {
             alignItems: "center",
             gap: "8px",
           }}
-        ></div>
+        >
+          <CalendarOutlined />
+          <Text size="sm" style={{ marginLeft: "0.7rem" }}>
+            Upcoming Events
+          </Text>
+        </div>
       }
     >
-      {isLoading ? (
+      {isLoading ? ( // when have no data show skeleton
         <List
           itemLayout="horizontal"
           dataSource={Array.from({ length: 5 }).map((_, index) => ({
@@ -56,7 +61,7 @@ const UpcomingEvents = () => {
           renderItem={() => <UpcomingEventsSkeleton />}
         />
       ) : (
-        <List
+        <List //when have data
           itemLayout="horizontal"
           dataSource={data?.data || []}
           renderItem={(item) => {
@@ -66,7 +71,7 @@ const UpcomingEvents = () => {
               <List.Item>
                 <List.Item.Meta
                   avatar={<Badge color={item.color} />}
-                  title={<Text size="xs"></Text>}
+                  title={<Text size="xs">{renderDate}</Text>}
                   description={
                     <Text ellipsis={{ tooltip: true }} strong>
                       {item.title}
