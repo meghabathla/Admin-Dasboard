@@ -1,4 +1,4 @@
-import React, { Children, useMemo } from "react";
+import React, { useMemo } from "react";
 import {
   KanbanBoardContainer,
   KanbanBoard,
@@ -7,15 +7,18 @@ import { KanbanColumn } from "@/components/tasks/kanban/column";
 import KanbanItem from "@/components/tasks/kanban/item";
 import { useList, useNavigation, useUpdate } from "@refinedev/core";
 import { TASKS_QUERY, TASK_STAGES_QUERY } from "@/graphql/queries";
-import { TaskStage } from "@/graphql/schema.types";
+//import { TaskStage } from "@/graphql/schema.types";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
-import { TasksQuery } from "@/graphql/types";
+import { TaskStagesQuery, TasksQuery } from "@/graphql/types";
 import { ProjectCardMemo } from "@/components/tasks/kanban/card";
 import { KanbanAddCardButton } from "@/components/tasks/kanban/add-card-button";
 import { KanbanColumnSkeleton, ProjectCardSkeleton } from "@/components";
 import { DragEndEvent } from "@dnd-kit/core";
-//import { useNavigation } from "react-router-dom";
+
 import { UPDATE_TASK_STAGE_MUTATION } from "@/graphql/mutations";
+
+type Task = GetFieldsFromList<TasksQuery>;
+type TaskStage = GetFieldsFromList<TaskStagesQuery> & { tasks: Task[] };
 
 const TasksList = ({ children }: React.PropsWithChildren) => {
   const { replace } = useNavigation();
