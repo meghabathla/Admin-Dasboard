@@ -1,4 +1,4 @@
-import { Authenticated, GitHubBanner, Refine } from "@refinedev/core";
+import { Authenticated, Refine } from "@refinedev/core";
 import { DevtoolsPanel, DevtoolsProvider } from "@refinedev/devtools";
 // import { RefineKbar, RefineKbarProvider } from "@refinedev/kbar";
 
@@ -25,7 +25,6 @@ import TasksEditPage from "./pages/tasks/edit";
 function App() {
   return (
     <BrowserRouter>
-      <GitHubBanner />
       {/* <RefineKbarProvider> */}
       <AntdApp>
         <DevtoolsProvider>
@@ -83,7 +82,6 @@ function App() {
             <UnsavedChangesNotifier />
             <DocumentTitleHandler />
           </Refine>
-          <DevtoolsPanel />
         </DevtoolsProvider>
       </AntdApp>
       {/* </RefineKbarProvider> */}
