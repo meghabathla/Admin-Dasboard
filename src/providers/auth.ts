@@ -36,6 +36,7 @@ export const authProvider: AuthProvider = {
                 `,
         },
       });
+      // headers: accessToken ? { Authorization: `Bearer ${accessToken}` } : {},
 
       localStorage.setItem("access_token", data.login.accessToken);
 
@@ -114,6 +115,7 @@ export const authProvider: AuthProvider = {
               Authorization: `Bearer ${accessToken}`,
             }
           : {},
+
         meta: {
           rawQuery: `
                     query Me {
