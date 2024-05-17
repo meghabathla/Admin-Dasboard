@@ -1,7 +1,7 @@
 import CustomAvatar from "@/components/custom-avatar";
 import { Text } from "@/components/text";
 import { COMPANIES_LIST_QUERY } from "@/graphql/queries";
-import { Company } from "@/graphql/schema.types";
+//import { Company } from "@/graphql/schema.types";
 import { SearchOutlined } from "@ant-design/icons";
 import { CreateButton, FilterDropdown, List, useTable } from "@refinedev/antd";
 import { HttpError, getDefaultFilter, useGo } from "@refinedev/core";
@@ -12,48 +12,46 @@ import React from "react";
 import { GetFieldsFromList } from "@refinedev/nestjs-query";
 import { CompaniesListQuery } from "@/graphql/types";
 
+type Company = GetFieldsFromList<CompaniesListQuery>;
+
 export const CompanyList = ({ children }: React.PropsWithChildren) => {
   const go = useGo();
-  const { tableProps, filters } =
-    useTable < GetFieldsFromList<CompaniesListQuery>;
-  HttpError,
-    GetFieldsFromList <
-      CompaniesListQuery >>
+  const { tableProps, filters } = useTable<Company, HttpError, Company>({
+    resource: "companies",
+    onSearch: (values) => {
+      return [
         {
-          resource: "companies",
-          onSearch: (values) => {
-            return [
-              {
-                field: "name",
-                operator: "contains",
-                value: values.name,
-              },
-            ];
-          },
-          pagination: {
-            pageSize: 12,
-          },
-          sorters: {
-            initial: [
-              {
-                field: "createdAt",
-                order: "desc",
-              },
-            ],
-          },
-          filters: {
-            initials: [
-              {
-                field: "name",
-                operator: "contains",
-                value: undefined,
-              },
-            ],
-          },
-          meta: {
-            gqlQuery: COMPANIES_LIST_QUERY,
-          },
-        };
+          field: "name",
+          operator: "contains",
+          value: values.name,
+        },
+      ];
+    },
+
+    sorters: {
+      initial: [
+        {
+          field: "createdAt",
+          order: "desc",
+        },
+      ],
+    },
+    filters: {
+      initial: [
+        {
+          field: "name",
+          operator: "contains",
+          value: undefined,
+        },
+      ],
+    },
+    pagination: {
+      pageSize: 12,
+    },
+    meta: {
+      gqlQuery: COMPANIES_LIST_QUERY,
+    },
+  });
   return (
     <div>
       <List

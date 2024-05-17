@@ -11,7 +11,8 @@ import {
 import React, { memo, useMemo } from "react";
 import { User } from "@/graphql/schema.types";
 import { Text } from "@/components/text";
-import { MenuProps } from "antd/lib";
+import type { MenuProps } from "antd";
+//import { MenuProps } from "antd/lib";
 import {
   ClockCircleOutlined,
   DeleteOutlined,
