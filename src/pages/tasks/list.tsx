@@ -83,7 +83,7 @@ const TasksList = ({ children }: React.PropsWithChildren) => {
       columns: grouped,
     };
   }, [stages, tasks]);
-  //console.log(tasks);
+  console.log(tasks);
   const handleAddCard = (args: { stageId: string }) => {
     const path =
       args.stageId === "unassigned"
@@ -97,6 +97,8 @@ const TasksList = ({ children }: React.PropsWithChildren) => {
     let stageId = event.over?.id as undefined | string | null;
     const taskId = event.active.id as string;
     const taskStageId = event.active.data.current?.stageId;
+
+    if (taskStageId === stageId) return;
 
     if (stageId === "unassigned") {
       stageId = null;
@@ -115,7 +117,8 @@ const TasksList = ({ children }: React.PropsWithChildren) => {
     });
   };
 
-  const isLoading = isLoadingTasks || isLoadingStages;
+  const isLoading = isLoadingStages || isLoadingTasks;
+
   if (isLoading) return <PageSkeleton />;
 
   return (
@@ -154,7 +157,7 @@ const TasksList = ({ children }: React.PropsWithChildren) => {
               count={column.tasks.length}
               onAddClick={() => handleAddCard({ stageId: column.id })}
             >
-              {isLoading && <ProjectCardSkeleton />}
+              {/* {isLoading && <ProjectCardSkeleton />} */}
               {!isLoading &&
                 column.tasks.map((task) => {
                   return (

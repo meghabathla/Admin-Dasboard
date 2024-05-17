@@ -1,4 +1,4 @@
-import { AuthProvider } from "@refinedev/core";
+import { AuthBindings } from "@refinedev/core";
 
 import { User } from "@/graphql/schema.types";
 
@@ -12,7 +12,7 @@ export const authCredentials = {
   password: "demodemo",
 };
 
-export const authProvider: AuthProvider = {
+export const authProvider: AuthBindings = {
   login: async ({ email }) => {
     try {
       //call the login mutation
@@ -37,6 +37,7 @@ export const authProvider: AuthProvider = {
         },
       });
       // headers: accessToken ? { Authorization: `Bearer ${accessToken}` } : {},
+      console.log(email);
 
       localStorage.setItem("access_token", data.login.accessToken);
 
@@ -56,6 +57,7 @@ export const authProvider: AuthProvider = {
       };
     }
   },
+
   logout: async () => {
     localStorage.removeItem("access_token");
 

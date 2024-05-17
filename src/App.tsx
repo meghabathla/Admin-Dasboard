@@ -74,7 +74,7 @@ function App() {
                   }
                 >
                   <Route path="new" element={<TasksCreatePage />} />
-                  <Route path="edit:id" element={<TasksEditPage />} />
+                  <Route path="edit/:id" element={<TasksEditPage />} />
                 </Route>
               </Route>
             </Routes>

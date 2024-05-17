@@ -38,11 +38,12 @@ const KanbanItem = ({ children, id, data }: React.PropsWithChildren<Props>) => {
                 cursor: "grabbing",
               }}
             >
+              {" "}
               {children}
             </div>
           </DragOverlay>
         )}
-        {/* {children} */}
+        {children}
       </div>
     </div>
   );
