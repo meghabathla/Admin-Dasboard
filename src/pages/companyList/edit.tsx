@@ -74,10 +74,10 @@ const EditPage = () => {
                   }
                 />
               </Form.Item>
-              <Form.Item>
+              <Form.Item label="Company Size" name="companySize">
                 <Select options={companySizeOptions} />
               </Form.Item>
-              <Form.Item>
+              <Form.Item label="Revenue" name="totalRevenue">
                 <InputNumber
                   autoFocus
                   addonBefore="$"
@@ -85,10 +85,10 @@ const EditPage = () => {
                   placeholder="0,00"
                 />
               </Form.Item>
-              <Form.Item label="Industry">
+              <Form.Item label="Industry" name="industry">
                 <Select options={industryOptions} />
               </Form.Item>
-              <Form.Item label="Business type">
+              <Form.Item label="Business type" name="businessType">
                 <Select options={businessTypeOptions} />
               </Form.Item>
               <Form.Item label="Country" name="country">
