@@ -1,49 +1,51 @@
-# giant-corners-lead
+# Admin Dashboard
 
-<div align="center" style="margin: 30px;">
-    <a href="https://refine.dev">
-    <img alt="refine logo" src="https://refine.ams3.cdn.digitaloceanspaces.com/readme/refine-readme-banner.png">
-    </a>
-</div>
-<br/>
+[Click here to view](https://admin-dasboard-alpha.vercel.app/)
 
-This [Refine](https://github.com/refinedev/refine) project was generated with [create refine-app](https://github.com/refinedev/refine/tree/master/packages/create-refine-app).
+## Introduction
 
-## Getting Started
+React-based CRM dashboard featuring comprehensive authentication, antd charts, sales management, and a fully operational kanban board with live updates for real-time actions across all devices.
 
-A React Framework for building internal tools, admin panels, dashboards & B2B apps with unmatched flexibility ✨
+## About Refine
+
+React Framework for building internal tools, admin panels, dashboards & B2B apps with unmatched flexibility ✨
 
 Refine's hooks and components simplifies the development process and eliminates the repetitive tasks by providing industry-standard solutions for crucial aspects of a project, including authentication, access control, routing, networking, state management, and i18n.
 
-## Available Scripts
+### Tech Stack
 
-### Running the development server.
+- React.js
+- TypeScript
+- GraphQL
+- Ant Design
+- Refine
+- Codegen
+- Vite
 
-```bash
-    npm run dev
-```
+## Features
 
-### Building for production.
+👉 Authentication: Seamless onboarding with secure login and signup functionalities; robust password recovery ensures a smooth authentication experience.
 
-```bash
-    npm run build
-```
+👉 Authorization: Granular access control regulates user actions, maintaining data security and user permissions.
 
-### Running the production server.
+👉 Home Page: Dynamic home page showcases interactive charts for key metrics; real-time updates on activities, upcoming events, and a deals chart for business insights.
 
-```bash
-    npm run start
-```
+👉 Companies Page: Complete CRUD for company management and sales processes; detailed profiles with add/edit functions, associated contacts/leads, pagination, and field-specific search.
 
-## Learn More
+👉 Kanban Board: Collaborative board with real-time task updates; customization options include due dates, markdown descriptions, and multi-assignees, dynamically shifting tasks across dashboards.
 
-To learn more about **Refine**, please check out the [Documentation](https://refine.dev/docs)
+👉 Account Settings: Personalized user account settings for profile management; streamlined configuration options for a tailored application experience.
 
-- **NestJS Query Data Provider** [Docs](https://refine.dev/docs/data/packages/nestjs-query/)
-- **Ant Design** [Docs](https://refine.dev/docs/ui-frameworks/antd/tutorial/)
-- **React Router** [Docs](https://refine.dev/docs/core/providers/router-provider/)
-- **Custom Auth Provider** [Docs](https://refine.dev/docs/core/providers/auth-provider/)
+👉 Responsive: Full responsiveness across devices for consistent user experience; fluid design adapts seamlessly to various screen sizes, ensuring accessibility.
 
-## License
+and many more, including code architecture and reusability
 
-MIT
+### Installation
+
+Install the project dependencies using npm:
+
+`npm install`
+
+Running the Project
+
+`npm run dev`
